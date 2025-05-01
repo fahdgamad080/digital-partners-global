@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import PhoneDisplay from '../components/PhoneDisplay';
@@ -13,6 +12,7 @@ const Index = () => {
   const [phonePosition, setPhonePosition] = useState('center'); // 'center', 'left', 'right'
   const phoneRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
   
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
@@ -28,6 +28,16 @@ const Index = () => {
     if (phoneRef.current && heroRef.current) {
       const phonePosition = phoneRef.current.getBoundingClientRect().top;
       const shouldBeFixed = phonePosition <= 100; // Add some buffer for smooth transition
+
+      // Check if we've reached the footer
+      if (footerRef.current) {
+        const footerTop = footerRef.current.getBoundingClientRect().top;
+        // If footer is about to come into view, unfix the phone
+        if (footerTop < window.innerHeight) {
+          setPhoneFixed(false);
+          return;
+        }
+      }
       
       if (shouldBeFixed !== phoneFixed) {
         setPhoneFixed(shouldBeFixed);
@@ -194,7 +204,7 @@ const Index = () => {
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  <path d="M10.707 2.293a1 1 0 011.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                 </svg>
               </div>
               <div>
@@ -288,7 +298,7 @@ const Index = () => {
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
-                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
               <h3 className="font-medium">Payment Processing</h3>
@@ -297,7 +307,7 @@ const Index = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 001.414 1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
               <h3 className="font-medium">Investment Platforms</h3>
@@ -315,7 +325,7 @@ const Index = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-teal" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
                 </svg>
               </div>
               <h3 className="font-medium">Security Solutions</h3>
@@ -326,7 +336,7 @@ const Index = () => {
       </div>
       
       {/* CTA Section */}
-      <div className="py-20 bg-gradient-to-r from-theme-blue to-theme-purple text-white">
+      <div ref={footerRef} className="py-20 bg-gradient-to-r from-theme-blue to-theme-purple text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
