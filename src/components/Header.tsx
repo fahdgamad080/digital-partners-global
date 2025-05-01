@@ -1,11 +1,30 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
   return (
-    <header className="fixed top-0 left-0 w-full bg-background/80 backdrop-blur-md z-50 border-b">
+    <header className={cn(
+      "fixed top-0 left-0 w-full backdrop-blur-md z-50 border-b transition-colors duration-200",
+      scrolled ? "bg-background/80" : "bg-transparent border-transparent"
+    )}>
       <div className="container mx-auto flex items-center justify-between py-4">
         <div className="flex items-center">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">

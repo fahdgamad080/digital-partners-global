@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [phoneFixed, setPhoneFixed] = useState(false);
+  const phoneRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
     services: useRef<HTMLDivElement>(null),
@@ -18,6 +22,17 @@ const Index = () => {
   
   // Function to check which section is currently visible
   const handleScroll = () => {
+    // Check if we should fix the phone position
+    if (phoneRef.current && heroRef.current) {
+      const phonePosition = phoneRef.current.getBoundingClientRect().top;
+      const shouldBeFixed = phonePosition <= 100; // Add some buffer for smooth transition
+      
+      if (shouldBeFixed !== phoneFixed) {
+        setPhoneFixed(shouldBeFixed);
+      }
+    }
+    
+    // Determine active section
     const scrollPosition = window.scrollY + window.innerHeight / 2;
     
     for (const section in sectionRefs) {
@@ -44,11 +59,18 @@ const Index = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [phoneFixed]);
   
   return (
     <div className="relative">
       <Header />
+      
+      {/* Fixed Position Phone Display (when scrolled) */}
+      {phoneFixed && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 transition-opacity duration-300 opacity-100">
+          <PhoneDisplay activeSection={activeSection} />
+        </div>
+      )}
       
       {/* Hero Section */}
       <div 
@@ -75,9 +97,14 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Phone Display Below Hero Text */}
-        <div className="mb-16">
-          <PhoneDisplay activeSection={activeSection} />
+        {/* Initial Phone Display Position (below hero text) */}
+        <div ref={heroRef} className="mb-16 relative">
+          <div ref={phoneRef} className={cn(
+            "transition-opacity duration-300",
+            phoneFixed ? "opacity-0" : "opacity-100"
+          )}>
+            <PhoneDisplay activeSection={activeSection} />
+          </div>
         </div>
       </div>
       
