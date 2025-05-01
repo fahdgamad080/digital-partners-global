@@ -5,6 +5,7 @@ import PhoneDisplay from '../components/PhoneDisplay';
 import Section from '../components/Section';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
