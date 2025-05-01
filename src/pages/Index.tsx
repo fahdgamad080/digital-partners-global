@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [phoneFixed, setPhoneFixed] = useState(false);
+  const [phonePosition, setPhonePosition] = useState('center'); // 'center', 'left', 'right'
   const phoneRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   
@@ -45,6 +46,15 @@ const Index = () => {
         
         if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
           setActiveSection(section);
+          
+          // Update phone position based on section
+          if (section === 'home') {
+            setPhonePosition('center');
+          } else if (section === 'services' || section === 'retail') {
+            setPhonePosition('right');
+          } else if (section === 'realestate' || section === 'fintech') {
+            setPhonePosition('left');
+          }
         }
       }
     }
@@ -68,7 +78,14 @@ const Index = () => {
       
       {/* Fixed Position Phone Display (when scrolled) */}
       {phoneFixed && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 transition-opacity duration-300 opacity-100">
+        <div className={cn(
+          "fixed top-1/2 transform -translate-y-1/2 z-40 transition-all duration-500 ease-in-out",
+          {
+            "left-1/2 -translate-x-1/2": phonePosition === 'center',
+            "left-1/4 -translate-x-1/2": phonePosition === 'left',
+            "left-3/4 -translate-x-1/2": phonePosition === 'right',
+          }
+        )}>
           <PhoneDisplay activeSection={activeSection} />
         </div>
       )}
