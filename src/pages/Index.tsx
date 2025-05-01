@@ -50,18 +50,13 @@ const Index = () => {
     <div className="relative">
       <Header />
       
-      {/* Fixed Phone Display */}
-      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
-        <PhoneDisplay activeSection={activeSection} />
-      </div>
-      
       {/* Hero Section */}
       <div 
         ref={sectionRefs.home} 
         id="home" 
-        className="h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-blue-50"
+        className="min-h-screen flex flex-col items-center justify-start pt-24 bg-gradient-to-r from-gray-50 to-blue-50"
       >
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
             Digital Solutions <br />For Modern Businesses
           </h1>
@@ -78,6 +73,11 @@ const Index = () => {
               Learn More
             </Button>
           </div>
+        </div>
+        
+        {/* Phone Display Below Hero Text */}
+        <div className="mb-16">
+          <PhoneDisplay activeSection={activeSection} />
         </div>
       </div>
       
