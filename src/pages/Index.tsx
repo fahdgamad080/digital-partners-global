@@ -1,12 +1,300 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState, useEffect, useRef } from 'react';
+import Header from '../components/Header';
+import PhoneDisplay from '../components/PhoneDisplay';
+import Section from '../components/Section';
+import Footer from '../components/Footer';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState('home');
+  const sectionRefs = {
+    home: useRef<HTMLDivElement>(null),
+    services: useRef<HTMLDivElement>(null),
+    realestate: useRef<HTMLDivElement>(null),
+    retail: useRef<HTMLDivElement>(null),
+    fintech: useRef<HTMLDivElement>(null),
+  };
+  
+  // Function to check which section is currently visible
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    for (const section in sectionRefs) {
+      const currentRef = sectionRefs[section as keyof typeof sectionRefs].current;
+      
+      if (currentRef) {
+        const offsetTop = currentRef.offsetTop;
+        const offsetBottom = offsetTop + currentRef.offsetHeight;
+        
+        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+          setActiveSection(section);
+        }
+      }
+    }
+  };
+  
+  useEffect(() => {
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    // Call once to set initial state
+    handleScroll();
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="relative">
+      <Header />
+      
+      {/* Fixed Phone Display */}
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+        <PhoneDisplay activeSection={activeSection} />
       </div>
+      
+      {/* Hero Section */}
+      <div 
+        ref={sectionRefs.home} 
+        id="home" 
+        className="h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-blue-50"
+      >
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
+            Digital Solutions <br />For Modern Businesses
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Transform your business with our innovative digital solutions that help you stay ahead in today's rapidly evolving market.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button 
+              className="bg-gradient-to-r from-theme-blue to-theme-purple hover:opacity-90 transition-opacity"
+            >
+              Get Started
+            </Button>
+            <Button variant="outline">
+              Learn More
+            </Button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Services Section */}
+      <div ref={sectionRefs.services} id="services" className="relative">
+        <Section 
+          id="services-section"
+          title="Comprehensive Digital Services"
+          subtitle="Our Services"
+          description="We deliver end-to-end digital solutions that transform businesses across industries. Our expertise spans app development, web solutions, and digital strategy."
+          isActive={activeSection === 'services'}
+          position="left"
+          ctaText="View All Services"
+        >
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium mb-1">App Development</h3>
+              <p className="text-sm text-gray-600">Native & cross-platform mobile applications</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium mb-1">Web Development</h3>
+              <p className="text-sm text-gray-600">Responsive websites & web applications</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                </svg>
+              </div>
+              <h3 className="font-medium mb-1">Data Analytics</h3>
+              <p className="text-sm text-gray-600">Insights & visualization solutions</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-teal" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M13 7H7v6h6V7z" />
+                  <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium mb-1">UI/UX Design</h3>
+              <p className="text-sm text-gray-600">User-centered design solutions</p>
+            </div>
+          </div>
+        </Section>
+      </div>
+      
+      {/* Real Estate Section */}
+      <div ref={sectionRefs.realestate} id="realestate" className="relative bg-gray-50">
+        <Section 
+          id="realestate-section"
+          title="Revolutionary Real Estate Solutions"
+          subtitle="Real Estate"
+          description="Transform the property buying, selling, and management experience with our cutting-edge real estate technology solutions that streamline operations and enhance customer engagement."
+          isActive={activeSection === 'realestate'}
+          position="right"
+          ctaText="Explore Real Estate Solutions"
+        >
+          <div className="mb-6">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-medium">Property Management</h3>
+                <p className="text-sm text-gray-600">Streamlined solutions for property managers</p>
+              </div>
+            </div>
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-medium">Virtual Tours</h3>
+                <p className="text-sm text-gray-600">Immersive property viewing experience</p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-medium">Market Analytics</h3>
+                <p className="text-sm text-gray-600">Data-driven property insights</p>
+              </div>
+            </div>
+          </div>
+        </Section>
+      </div>
+      
+      {/* Retail Section */}
+      <div ref={sectionRefs.retail} id="retail" className="relative">
+        <Section 
+          id="retail-section"
+          title="Retail Technology Solutions"
+          subtitle="Retail"
+          description="Enhance your retail operations with our innovative technology solutions that connect online and offline shopping experiences, optimize inventory, and deliver personalized customer experiences."
+          isActive={activeSection === 'retail'}
+          position="left"
+          ctaText="Discover Retail Solutions"
+        >
+          <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
+            <h3 className="font-medium mb-3">Key Benefits</h3>
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Omnichannel Shopping Experience</span>
+              </li>
+              <li className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Inventory Management Optimization</span>
+              </li>
+              <li className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Customer Analytics & Insights</span>
+              </li>
+              <li className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Personalized Shopping Experience</span>
+              </li>
+            </ul>
+          </div>
+        </Section>
+      </div>
+      
+      {/* Fintech Section */}
+      <div ref={sectionRefs.fintech} id="fintech" className="relative bg-gray-50">
+        <Section 
+          id="fintech-section"
+          title="Financial Technology Solutions"
+          subtitle="Fintech"
+          description="Transform your financial services with our secure, user-friendly fintech solutions that streamline payments, investments, and financial management for businesses and individuals."
+          isActive={activeSection === 'fintech'}
+          position="right"
+          ctaText="Explore Fintech Solutions"
+        >
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium">Payment Processing</h3>
+              <p className="text-xs text-gray-600">Secure, fast transactions</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium">Investment Platforms</h3>
+              <p className="text-xs text-gray-600">Accessible investing tools</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium">Banking APIs</h3>
+              <p className="text-xs text-gray-600">Secure integrations</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-teal" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="font-medium">Security Solutions</h3>
+              <p className="text-xs text-gray-600">Advanced fraud protection</p>
+            </div>
+          </div>
+        </Section>
+      </div>
+      
+      {/* CTA Section */}
+      <div className="py-20 bg-gradient-to-r from-theme-blue to-theme-purple text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Let's work together to create innovative digital solutions that drive growth and success.
+          </p>
+          <Button className="bg-white text-theme-blue hover:bg-gray-100">
+            Contact Us Today
+          </Button>
+        </div>
+      </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
