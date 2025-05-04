@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type PhoneDisplayProps = {
   activeSection: string;
+  className?: string;
 };
 
-const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
+const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className }) => {
   const [screenContent, setScreenContent] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
@@ -97,7 +99,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
   };
 
   return (
-    <div className="phone-container shadow-2xl transform transition-all duration-500 ease-in-out">
+    <div className={cn("phone-container shadow-2xl transform transition-all duration-500 ease-in-out", className)}>
       <div className="phone-screen-content">
         <div className={cn("w-full h-full relative", {
           "animate-fade-out": isTransitioning,

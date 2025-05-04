@@ -2,6 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type SectionProps = {
   id: string;
@@ -9,7 +10,7 @@ type SectionProps = {
   subtitle: string;
   description: string;
   isActive: boolean;
-  position: 'left' | 'right';
+  position: 'left' | 'right' | 'center';
   ctaText?: string;
   onCTAClick?: () => void;
   children?: React.ReactNode;
@@ -26,12 +27,18 @@ const Section: React.FC<SectionProps> = ({
   onCTAClick,
   children 
 }) => {
+  const isMobile = useIsMobile();
+  
   return (
     <section 
       id={id} 
       className={cn(
         "section-wrapper",
-        position === 'left' ? 'justify-start' : 'justify-end',
+        {
+          "justify-start": position === 'left',
+          "justify-end": position === 'right',
+          "justify-center": position === 'center'
+        }
       )}
     >
       <div className={cn(
@@ -41,12 +48,14 @@ const Section: React.FC<SectionProps> = ({
           "opacity-100": isActive,
           "opacity-70": !isActive,
         },
-        position === 'left' ? 'ml-6 md:ml-20' : 'mr-6 md:mr-20'
+        isMobile
+          ? "mx-auto px-4 text-center" 
+          : position === 'left' ? 'ml-6 md:ml-20' : 'mr-6 md:mr-20'
       )}>
         <h3 className="text-sm font-semibold text-theme-indigo uppercase tracking-wider mb-2">
           {subtitle}
         </h3>
-        <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
           {title}
         </h2>
         <p className="text-gray-600 mb-6">

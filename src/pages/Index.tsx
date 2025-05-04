@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import PhoneDisplay from '../components/PhoneDisplay';
@@ -6,6 +5,7 @@ import Section from '../components/Section';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -15,6 +15,7 @@ const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
   const lastSectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
@@ -26,7 +27,27 @@ const Index = () => {
   
   // Function to check which section is currently visible
   const handleScroll = () => {
-    // Check if we should fix the phone position
+    // On mobile, we don't need to fix the phone position
+    if (isMobile) {
+      // Just determine active section for mobile
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      
+      for (const section in sectionRefs) {
+        const currentRef = sectionRefs[section as keyof typeof sectionRefs].current;
+        
+        if (currentRef) {
+          const offsetTop = currentRef.offsetTop;
+          const offsetBottom = offsetTop + currentRef.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+          }
+        }
+      }
+      return;
+    }
+    
+    // Desktop behavior
     if (phoneRef.current && heroRef.current) {
       const phonePosition = phoneRef.current.getBoundingClientRect().top;
       const shouldBeFixed = phonePosition <= 100; // Add some buffer for smooth transition
@@ -82,14 +103,14 @@ const Index = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [phoneFixed]);
+  }, [phoneFixed, isMobile]);
   
   return (
     <div className="relative">
       <Header />
       
-      {/* Fixed Position Phone Display (when scrolled) */}
-      {phoneFixed && (
+      {/* Fixed Position Phone Display (when scrolled on desktop) */}
+      {!isMobile && phoneFixed && (
         <div className={cn(
           "fixed top-1/2 transform -translate-y-1/2 z-40 transition-all duration-500 ease-in-out",
           {
@@ -109,13 +130,13 @@ const Index = () => {
         className="min-h-screen flex flex-col items-center justify-start pt-24 bg-gradient-to-r from-gray-50 to-blue-50"
       >
         <div className="container mx-auto px-4 text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
             Digital Solutions <br />For Modern Businesses
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Transform your business with our innovative digital solutions that help you stay ahead in today's rapidly evolving market.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Button 
               className="bg-gradient-to-r from-theme-blue to-theme-purple hover:opacity-90 transition-opacity"
             >
@@ -131,7 +152,7 @@ const Index = () => {
         <div ref={heroRef} className="mb-16 relative">
           <div ref={phoneRef} className={cn(
             "transition-opacity duration-300",
-            phoneFixed ? "opacity-0" : "opacity-100"
+            phoneFixed && !isMobile ? "opacity-0" : "opacity-100"
           )}>
             <PhoneDisplay activeSection={activeSection} />
           </div>
@@ -146,7 +167,7 @@ const Index = () => {
           subtitle="Our Services"
           description="We deliver end-to-end digital solutions that transform businesses across industries. Our expertise spans app development, web solutions, and digital strategy."
           isActive={activeSection === 'services'}
-          position="left"
+          position={isMobile ? 'center' : 'left'}
           ctaText="View All Services"
         >
           <div className="grid grid-cols-2 gap-4 mb-6">
@@ -171,7 +192,8 @@ const Index = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
                 </svg>
               </div>
               <h3 className="font-medium mb-1">Data Analytics</h3>
@@ -181,13 +203,18 @@ const Index = () => {
               <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-teal" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M13 7H7v6h6V7z" />
-                  <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 012 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clipRule="evenodd" />
                 </svg>
               </div>
               <h3 className="font-medium mb-1">UI/UX Design</h3>
               <p className="text-sm text-gray-600">User-centered design solutions</p>
             </div>
           </div>
+          {isMobile && (
+            <div className="mt-8 flex justify-center">
+              <PhoneDisplay activeSection={activeSection} className="scale-75" />
+            </div>
+          )}
         </Section>
       </div>
       
@@ -199,7 +226,7 @@ const Index = () => {
           subtitle="Real Estate"
           description="Transform the property buying, selling, and management experience with our cutting-edge real estate technology solutions that streamline operations and enhance customer engagement."
           isActive={activeSection === 'realestate'}
-          position="right"
+          position={isMobile ? 'center' : 'right'}
           ctaText="Explore Real Estate Solutions"
         >
           <div className="mb-6">
@@ -238,6 +265,11 @@ const Index = () => {
               </div>
             </div>
           </div>
+          {isMobile && (
+            <div className="mt-8 flex justify-center">
+              <PhoneDisplay activeSection={activeSection} className="scale-75" />
+            </div>
+          )}
         </Section>
       </div>
       
@@ -249,7 +281,7 @@ const Index = () => {
           subtitle="Retail"
           description="Enhance your retail operations with our innovative technology solutions that connect online and offline shopping experiences, optimize inventory, and deliver personalized customer experiences."
           isActive={activeSection === 'retail'}
-          position="left"
+          position={isMobile ? 'center' : 'left'}
           ctaText="Discover Retail Solutions"
         >
           <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
@@ -281,6 +313,11 @@ const Index = () => {
               </li>
             </ul>
           </div>
+          {isMobile && (
+            <div className="mt-8 flex justify-center">
+              <PhoneDisplay activeSection={activeSection} className="scale-75" />
+            </div>
+          )}
         </Section>
       </div>
       
@@ -293,7 +330,7 @@ const Index = () => {
             subtitle="Fintech"
             description="Transform your financial services with our secure, user-friendly fintech solutions that streamline payments, investments, and financial management for businesses and individuals."
             isActive={activeSection === 'fintech'}
-            position="right"
+            position={isMobile ? 'center' : 'right'}
             ctaText="Explore Fintech Solutions"
           >
             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -335,6 +372,11 @@ const Index = () => {
                 <p className="text-xs text-gray-600">Advanced fraud protection</p>
               </div>
             </div>
+            {isMobile && (
+              <div className="mt-8 flex justify-center">
+                <PhoneDisplay activeSection={activeSection} className="scale-75" />
+              </div>
+            )}
           </Section>
         </div>
       </div>
@@ -342,8 +384,8 @@ const Index = () => {
       {/* CTA Section */}
       <div ref={footerRef} className="py-20 bg-gradient-to-r from-theme-blue to-theme-purple text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
             Let's work together to create innovative digital solutions that drive growth and success.
           </p>
           <Button className="bg-white text-theme-blue hover:bg-gray-100">

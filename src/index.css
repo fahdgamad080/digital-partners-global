@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -103,6 +104,20 @@
     display: flex;
     align-items: center;
     position: relative;
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .section-wrapper {
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .phone-container {
+      width: 240px;
+      height: 480px;
+      border-radius: 30px;
+    }
   }
 
   @keyframes phone-screen-change {
