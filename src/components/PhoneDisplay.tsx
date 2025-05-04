@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -222,18 +223,12 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
         
       case 'fintech':
         return (
-          <div className="h-full">
-            <div className="h-full w-full overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
-                alt="Financial technology visualization" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-theme-blue/80 to-transparent flex flex-col justify-end p-4 text-white">
-                <h3 className="font-bold text-lg">Fintech Solutions</h3>
-                <p className="text-sm">Advanced financial technology for modern businesses</p>
-              </div>
-            </div>
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
+              alt="Financial technology visualization" 
+              className="w-full h-full object-cover"
+            />
           </div>
         );
 
