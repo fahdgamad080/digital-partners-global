@@ -98,7 +98,6 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
 
   return (
     <div className="phone-container shadow-2xl transform transition-all duration-500 ease-in-out">
-      <div className="phone-notch"></div>
       <div className="phone-screen-content">
         <div className={cn("w-full h-full relative", {
           "animate-fade-out": isTransitioning,
