@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -59,7 +58,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
               <div className="flex items-center mb-2">
                 <div className="w-8 h-8 bg-theme-indigo/20 rounded-full flex items-center justify-center mr-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
@@ -70,7 +69,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
               <div className="flex items-center mb-2">
                 <div className="w-8 h-8 bg-theme-purple/20 rounded-full flex items-center justify-center mr-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
@@ -223,100 +222,16 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
         
       case 'fintech':
         return (
-          <div className="h-full bg-gradient-to-br from-theme-blue/10 to-theme-indigo/10">
-            <div className="p-4">
-              <div className="flex justify-between items-center mb-6">
-                <div>
-                  <p className="text-xs text-gray-500">Good morning,</p>
-                  <h3 className="font-bold">Alex Morgan</h3>
-                </div>
-                <div className="w-8 h-8 bg-theme-indigo rounded-full"></div>
-              </div>
-              <div className="bg-gradient-to-r from-theme-blue to-theme-indigo rounded-lg p-4 text-white mb-6">
-                <p className="text-xs mb-1">Total Balance</p>
-                <p className="text-xl font-bold mb-3">$24,156.00</p>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-xs opacity-80">Income</p>
-                    <p className="text-sm">+$2,450</p>
-                  </div>
-                  <div>
-                    <p className="text-xs opacity-80">Expenses</p>
-                    <p className="text-sm">-$1,280</p>
-                  </div>
-                  <div className="bg-white/20 p-1 rounded">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <h4 className="font-medium text-sm mb-3">Quick Actions</h4>
-              <div className="grid grid-cols-4 gap-2 mb-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-theme-purple/20 rounded-full flex items-center justify-center mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
-                    </svg>
-                  </div>
-                  <p className="text-xs">Send</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-theme-blue/20 rounded-full flex items-center justify-center mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z" />
-                    </svg>
-                  </div>
-                  <p className="text-xs">Request</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-theme-indigo/20 rounded-full flex items-center justify-center mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <p className="text-xs">Cards</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-theme-teal/20 rounded-full flex items-center justify-center mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-teal" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <p className="text-xs">Settings</p>
-                </div>
-              </div>
-              <h4 className="font-medium text-sm mb-3">Recent Transactions</h4>
-              <div className="space-y-3">
-                <div className="bg-white rounded-lg p-3 flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
-                        <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium">Spotify Subscription</p>
-                      <p className="text-xs text-gray-500">25 Apr 2023</p>
-                    </div>
-                  </div>
-                  <p className="text-xs font-medium">-$9.99</p>
-                </div>
-                <div className="bg-white rounded-lg p-3 flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium">Salary Deposit</p>
-                      <p className="text-xs text-gray-500">24 Apr 2023</p>
-                    </div>
-                  </div>
-                  <p className="text-xs font-medium text-green-600">+$2,450.00</p>
-                </div>
+          <div className="h-full">
+            <div className="h-full w-full overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
+                alt="Financial technology visualization" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-theme-blue/80 to-transparent flex flex-col justify-end p-4 text-white">
+                <h3 className="font-bold text-lg">Fintech Solutions</h3>
+                <p className="text-sm">Advanced financial technology for modern businesses</p>
               </div>
             </div>
           </div>
@@ -338,7 +253,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection }) => {
     <div className="phone-container shadow-2xl transform transition-all duration-500 ease-in-out">
       <div className="phone-notch"></div>
       <div className="phone-screen-content">
-        <div className={cn("w-full h-full", {
+        <div className={cn("w-full h-full relative", {
           "animate-fade-out": isTransitioning,
           "animate-phone-screen-change": !isTransitioning && screenContent,
         })}>
