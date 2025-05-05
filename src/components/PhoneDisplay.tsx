@@ -84,6 +84,94 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
             />
           </div>
         );
+        
+      case 'healthcare':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef" 
+              alt="Healthcare technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'education':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" 
+              alt="Educational technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'logistics':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088" 
+              alt="Logistics technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'entertainment':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09" 
+              alt="Entertainment technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'automotive':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341" 
+              alt="Automotive technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'sustainability':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1473091534298-04dcbce3278c" 
+              alt="Sustainability technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'cybersecurity':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" 
+              alt="Cybersecurity technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+        
+      case 'manufacturing':
+        return (
+          <div className="h-full w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1565462905102-140e712045aa" 
+              alt="Manufacturing technology" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
 
       default:
         return (
@@ -113,3 +201,4 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
 };
 
 export default PhoneDisplay;
+
