@@ -3,7 +3,6 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import PhoneDisplay from './PhoneDisplay';
 
 type SectionProps = {
   id: string;
@@ -43,7 +42,7 @@ const Section: React.FC<SectionProps> = ({
       )}
     >
       <div className={cn(
-        "w-full max-w-md p-6 rounded-lg",
+        "max-w-md p-6 rounded-lg",
         {
           "animate-fade-in": isActive,
           "opacity-100": isActive,
@@ -74,18 +73,6 @@ const Section: React.FC<SectionProps> = ({
           </Button>
         )}
       </div>
-
-      {/* Show phone on desktop in the appropriate position */}
-      {!isMobile && isActive && (
-        <div className={cn(
-          "hidden md:block",
-          position === 'left' ? 'absolute right-6 md:right-20 top-1/2 -translate-y-1/2' : 
-          position === 'right' ? 'absolute left-6 md:left-20 top-1/2 -translate-y-1/2' : 
-          'mx-auto'
-        )}>
-          <PhoneDisplay activeSection={id.replace('-section', '')} />
-        </div>
-      )}
     </section>
   );
 };

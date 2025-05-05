@@ -79,11 +79,6 @@ const Index = () => {
     // Determine active section
     const scrollPosition = window.scrollY + window.innerHeight / 2;
     
-    // These sections will have phone on right
-    const rightPhoneSections = ['services', 'retail', 'healthcare', 'entertainment', 'cybersecurity', 'manufacturing'];
-    // These sections will have phone on left
-    const leftPhoneSections = ['realestate', 'fintech', 'education', 'logistics', 'automotive', 'sustainability'];
-    
     for (const section in sectionRefs) {
       const currentRef = sectionRefs[section as keyof typeof sectionRefs].current;
       
@@ -97,9 +92,9 @@ const Index = () => {
           // Update phone position based on section
           if (section === 'home') {
             setPhonePosition('center');
-          } else if (rightPhoneSections.includes(section)) {
+          } else if (section === 'services' || section === 'retail' || section === 'education' || section === 'entertainment' || section === 'sustainability' || section === 'manufacturing') {
             setPhonePosition('right');
-          } else if (leftPhoneSections.includes(section)) {
+          } else if (section === 'realestate' || section === 'fintech' || section === 'healthcare' || section === 'logistics' || section === 'automotive' || section === 'cybersecurity') {
             setPhonePosition('left');
           }
         }
@@ -129,8 +124,8 @@ const Index = () => {
           "fixed top-1/2 transform -translate-y-1/2 z-40 transition-all duration-500 ease-in-out",
           {
             "left-1/2 -translate-x-1/2": phonePosition === 'center',
-            "left-1/4 -translate-x-1/2": phonePosition === 'right',
-            "left-3/4 -translate-x-1/2": phonePosition === 'left',
+            "left-1/4 -translate-x-1/2": phonePosition === 'left',
+            "left-3/4 -translate-x-1/2": phonePosition === 'right',
           }
         )}>
           <PhoneDisplay activeSection={activeSection} />
@@ -350,8 +345,8 @@ const Index = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 012 2h2.586l-1.293 1.293a1 1 0 011.414 1.414L9 10.586 7.707 9.293a1 1 0 01-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
-                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
+                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
               <h3 className="font-medium">Payment Processing</h3>
@@ -360,7 +355,7 @@ const Index = () => {
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 001.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 001.414 1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
               <h3 className="font-medium">Investment Platforms</h3>
@@ -490,7 +485,7 @@ const Index = () => {
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M8 16.5a1.5 1.5 0 01-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                  <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                   <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z" />
                 </svg>
               </div>
@@ -502,7 +497,7 @@ const Index = () => {
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2h-3zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" />
+                  <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
                 </svg>
               </div>
               <div>
@@ -683,51 +678,73 @@ const Index = () => {
       </div>
 
       {/* Manufacturing Section */}
-      <div ref={sectionRefs.manufacturing} id="manufacturing" className="relative bg-gray-50" ref={lastSectionRef}>
-        <Section 
-          id="manufacturing-section"
-          title="Manufacturing Technology Solutions"
-          subtitle="Manufacturing"
-          description="Transform your manufacturing operations with our advanced technology solutions that optimize production, enhance quality control, and streamline supply chain management."
-          isActive={activeSection === 'manufacturing'}
-          position={isMobile ? 'center' : 'left'}
-          ctaText="Explore Manufacturing Tech"
-        >
-          <div className="mb-6">
-            <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-medium">Process Automation</h3>
-                <p className="text-sm text-gray-600">Smart manufacturing systems</p>
-              </div>
+      <div ref={sectionRefs.manufacturing} id="manufacturing" className="relative bg-gray-50">
+        <div ref={lastSectionRef}>
+          <Section 
+            id="manufacturing-section"
+            title="Smart Manufacturing Solutions"
+            subtitle="Manufacturing"
+            description="Transform your production processes with our Industry 4.0 solutions that integrate IoT, AI, and automation to enhance efficiency, quality, and flexibility."
+            isActive={activeSection === 'manufacturing'}
+            position={isMobile ? 'center' : 'right'}
+            ctaText="Explore Manufacturing Tech"
+          >
+            <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
+              <h3 className="font-medium mb-3">Industry 4.0 Technologies</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Industrial IoT Solutions</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Predictive Maintenance</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Digital Twins</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Smart Factory Automation</span>
+                </li>
+              </ul>
             </div>
-            <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-purple" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
-                </svg>
+            {isMobile && (
+              <div className="mt-8 flex justify-center">
+                <PhoneDisplay activeSection={activeSection} className="scale-75" />
               </div>
-              <div>
-                <h3 className="font-medium">IoT Integration</h3>
-                <p className="text-sm text-gray-600">Connected equipment monitoring</p>
-              </div>
-            </div>
-          </div>
-          {isMobile && (
-            <div className="mt-8 flex justify-center">
-              <PhoneDisplay activeSection={activeSection} className="scale-75" />
-            </div>
-          )}
-        </Section>
+            )}
+          </Section>
+        </div>
       </div>
       
+      {/* CTA Section */}
+      <div ref={footerRef} className="py-20 bg-gradient-to-r from-theme-blue to-theme-purple text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            Let's work together to create innovative digital solutions that drive growth and success.
+          </p>
+          <Button className="bg-white text-theme-blue hover:bg-gray-100">
+            Contact Us Today
+          </Button>
+        </div>
+      </div>
+      
+      {/* Footer */}
       <Footer />
     </div>
   );
 };
 
 export default Index;
+

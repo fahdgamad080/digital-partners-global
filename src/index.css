@@ -111,7 +111,6 @@
     .section-wrapper {
       flex-direction: column;
       justify-content: center;
-      padding: 4rem 1rem;
     }
     
     .phone-container {
@@ -149,3 +148,4 @@
     animation: fade-out 0.3s ease-out forwards;
   }
 }
+
