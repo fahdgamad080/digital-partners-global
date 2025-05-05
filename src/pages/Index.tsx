@@ -79,6 +79,11 @@ const Index = () => {
     // Determine active section
     const scrollPosition = window.scrollY + window.innerHeight / 2;
     
+    // These sections will have phone on right
+    const rightPhoneSections = ['services', 'retail', 'healthcare', 'entertainment', 'cybersecurity', 'manufacturing'];
+    // These sections will have phone on left
+    const leftPhoneSections = ['realestate', 'fintech', 'education', 'logistics', 'automotive', 'sustainability'];
+    
     for (const section in sectionRefs) {
       const currentRef = sectionRefs[section as keyof typeof sectionRefs].current;
       
@@ -92,9 +97,9 @@ const Index = () => {
           // Update phone position based on section
           if (section === 'home') {
             setPhonePosition('center');
-          } else if (section === 'services' || section === 'retail' || section === 'education' || section === 'entertainment' || section === 'sustainability' || section === 'manufacturing') {
+          } else if (rightPhoneSections.includes(section)) {
             setPhonePosition('right');
-          } else if (section === 'realestate' || section === 'fintech' || section === 'healthcare' || section === 'logistics' || section === 'automotive' || section === 'cybersecurity') {
+          } else if (leftPhoneSections.includes(section)) {
             setPhonePosition('left');
           }
         }
@@ -124,8 +129,8 @@ const Index = () => {
           "fixed top-1/2 transform -translate-y-1/2 z-40 transition-all duration-500 ease-in-out",
           {
             "left-1/2 -translate-x-1/2": phonePosition === 'center',
-            "left-1/4 -translate-x-1/2": phonePosition === 'left',
-            "left-3/4 -translate-x-1/2": phonePosition === 'right',
+            "left-3/4 -translate-x-1/2": phonePosition === 'left',
+            "left-1/4 -translate-x-1/2": phonePosition === 'right',
           }
         )}>
           <PhoneDisplay activeSection={activeSection} />
