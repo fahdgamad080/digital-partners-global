@@ -34,7 +34,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src=" /1.png" 
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" 
               alt="Digital solutions home" 
               className="w-full h-full object-cover"
             />
@@ -45,7 +45,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/2.png" 
+              src="https://images.unsplash.com/photo-1518005020951-eccb494ad742" 
               alt="Digital services" 
               className="w-full h-full object-cover"
             />
@@ -56,7 +56,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/3.png" 
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" 
               alt="Real estate solutions" 
               className="w-full h-full object-cover"
             />
@@ -67,7 +67,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/4.png" 
+              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
               alt="Retail technology" 
               className="w-full h-full object-cover"
             />
@@ -78,7 +78,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/5.png" 
+              src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
               alt="Financial technology visualization" 
               className="w-full h-full object-cover"
             />
@@ -89,7 +89,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/6.png" 
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef" 
               alt="Healthcare technology" 
               className="w-full h-full object-cover"
             />
@@ -100,7 +100,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/7.png" 
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" 
               alt="Educational technology" 
               className="w-full h-full object-cover"
             />
@@ -111,7 +111,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/8.png" 
+              src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088" 
               alt="Logistics technology" 
               className="w-full h-full object-cover"
             />
@@ -122,7 +122,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/9.png" 
+              src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09" 
               alt="Entertainment technology" 
               className="w-full h-full object-cover"
             />
@@ -133,7 +133,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/10.png" 
+              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341" 
               alt="Automotive technology" 
               className="w-full h-full object-cover"
             />
@@ -144,7 +144,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/11.png" 
+              src="https://images.unsplash.com/photo-1473091534298-04dcbce3278c" 
               alt="Sustainability technology" 
               className="w-full h-full object-cover"
             />
@@ -155,7 +155,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/12.png" 
+              src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" 
               alt="Cybersecurity technology" 
               className="w-full h-full object-cover"
             />
@@ -166,7 +166,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="/13.png" 
+              src="https://images.unsplash.com/photo-1565462905102-140e712045aa" 
               alt="Manufacturing technology" 
               className="w-full h-full object-cover"
             />
@@ -177,7 +177,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/13.png" 
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" 
               alt="Digital solutions" 
               className="w-full h-full object-cover"
             />
