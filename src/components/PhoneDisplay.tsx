@@ -34,7 +34,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/1.png" 
+              src=" /1.png" 
               alt="Digital solutions home" 
               className="w-full h-full object-cover"
             />
@@ -45,7 +45,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/2.png" 
+              src="/2.png" 
               alt="Digital services" 
               className="w-full h-full object-cover"
             />
@@ -56,7 +56,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/3.png" 
+              src="/3.png" 
               alt="Real estate solutions" 
               className="w-full h-full object-cover"
             />
@@ -67,7 +67,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/4.png" 
+              src="/4.png" 
               alt="Retail technology" 
               className="w-full h-full object-cover"
             />
@@ -78,7 +78,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/5.png" 
+              src="/5.png" 
               alt="Financial technology visualization" 
               className="w-full h-full object-cover"
             />
@@ -89,7 +89,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/5.png" 
+              src="/6.png" 
               alt="Healthcare technology" 
               className="w-full h-full object-cover"
             />
@@ -100,7 +100,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/6.png" 
+              src="/7.png" 
               alt="Educational technology" 
               className="w-full h-full object-cover"
             />
@@ -111,7 +111,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/7.png" 
+              src="/8.png" 
               alt="Logistics technology" 
               className="w-full h-full object-cover"
             />
@@ -122,7 +122,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/8.png" 
+              src="/9.png" 
               alt="Entertainment technology" 
               className="w-full h-full object-cover"
             />
@@ -133,7 +133,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/9.png" 
+              src="/10.png" 
               alt="Automotive technology" 
               className="w-full h-full object-cover"
             />
@@ -144,7 +144,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/10.png" 
+              src="/11.png" 
               alt="Sustainability technology" 
               className="w-full h-full object-cover"
             />
@@ -155,7 +155,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/11.png" 
+              src="/12.png" 
               alt="Cybersecurity technology" 
               className="w-full h-full object-cover"
             />
@@ -166,7 +166,7 @@ const PhoneDisplay: React.FC<PhoneDisplayProps> = ({ activeSection, className })
         return (
           <div className="h-full w-full overflow-hidden">
             <img 
-              src="public/12.png" 
+              src="/13.png" 
               alt="Manufacturing technology" 
               className="w-full h-full object-cover"
             />
