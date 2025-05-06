@@ -172,9 +172,9 @@ const Index = () => {
       <div ref={sectionRefs.services} id="services" className="relative">
         <Section 
           id="services-section"
-          title="Comprehensive Digital Services"
+          title="Location"
           subtitle="Our Services"
-          description="We deliver end-to-end digital solutions that transform businesses across industries. Our expertise spans app development, web solutions, and digital strategy."
+          description="Beautifully designed map with the location of the development."
           isActive={activeSection === 'services'}
           position={isMobile ? 'center' : 'left'}
           ctaText="View All Services"
@@ -218,12 +218,12 @@ const Index = () => {
               <h3 className="font-medium mb-1">UI/UX Design</h3>
               <p className="text-sm text-gray-600">User-centered design solutions</p>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
       
@@ -231,9 +231,9 @@ const Index = () => {
       <div ref={sectionRefs.realestate} id="realestate" className="relative bg-gray-50">
         <Section 
           id="realestate-section"
-          title="Revolutionary Real Estate Solutions"
+          title="Infrastructure"
           subtitle="Real Estate"
-          description="Transform the property buying, selling, and management experience with our cutting-edge real estate technology solutions that streamline operations and enhance customer engagement."
+          description="Explore the transportation, entertainment, shopping malls, business centres, schools and landmarks close to the project."
           isActive={activeSection === 'realestate'}
           position={isMobile ? 'center' : 'right'}
           ctaText="Explore Real Estate Solutions"
@@ -273,12 +273,12 @@ const Index = () => {
                 <p className="text-sm text-gray-600">Data-driven property insights</p>
               </div>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
       
@@ -286,9 +286,9 @@ const Index = () => {
       <div ref={sectionRefs.retail} id="retail" className="relative">
         <Section 
           id="retail-section"
-          title="Retail Technology Solutions"
+          title="Proximity to landmarks"
           subtitle="Retail"
-          description="Enhance your retail operations with our innovative technology solutions that connect online and offline shopping experiences, optimize inventory, and deliver personalized customer experiences."
+          description="Get to know about the distance and traveling time from the development to the landmarks of the city."
           isActive={activeSection === 'retail'}
           position={isMobile ? 'center' : 'left'}
           ctaText="Discover Retail Solutions"
@@ -321,12 +321,12 @@ const Index = () => {
                 <span>Personalized Shopping Experience</span>
               </li>
             </ul>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
       
@@ -334,9 +334,9 @@ const Index = () => {
       <div ref={sectionRefs.fintech} id="fintech" className="relative bg-gray-50">
         <Section 
           id="fintech-section"
-          title="Financial Technology Solutions"
+          title="Master Plan"
           subtitle="Fintech"
-          description="Transform your financial services with our secure, user-friendly fintech solutions that streamline payments, investments, and financial management for businesses and individuals."
+          description="Interactive Master Plan allows to explore the project from a bird-eye view perspective."
           isActive={activeSection === 'fintech'}
           position={isMobile ? 'center' : 'right'}
           ctaText="Explore Fintech Solutions"
@@ -379,12 +379,12 @@ const Index = () => {
               <h3 className="font-medium">Security Solutions</h3>
               <p className="text-xs text-gray-600">Advanced fraud protection</p>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -392,9 +392,9 @@ const Index = () => {
       <div ref={sectionRefs.healthcare} id="healthcare" className="relative">
         <Section 
           id="healthcare-section"
-          title="Healthcare Technology Solutions"
+          title="Availability"
           subtitle="Healthcare"
-          description="Revolutionize patient care and medical operations with our innovative healthcare technology solutions designed to improve efficiency, accuracy, and patient outcomes."
+          description="Availability is connected to the CRM System, showing the most actual data in real time."
           isActive={activeSection === 'healthcare'}
           position={isMobile ? 'center' : 'left'}
           ctaText="Explore Healthcare Solutions"
@@ -419,12 +419,12 @@ const Index = () => {
               <h3 className="font-medium">Electronic Records</h3>
               <p className="text-xs text-gray-600">Seamless medical data</p>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -432,14 +432,14 @@ const Index = () => {
       <div ref={sectionRefs.education} id="education" className="relative bg-gray-50">
         <Section 
           id="education-section"
-          title="Educational Technology Solutions"
+          title="Real-time updates"
           subtitle="Education"
-          description="Transform learning experiences with our innovative edtech solutions that enhance engagement, personalization, and accessibility for students of all ages."
+          description="When one unit gets sold all viewers around the world watch how the green highlight disappears."
           isActive={activeSection === 'education'}
           position={isMobile ? 'center' : 'right'}
           ctaText="Discover EdTech Solutions"
         >
-          <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
+          {/*<div className="bg-white p-5 rounded-lg shadow-sm mb-6">
             <h3 className="font-medium mb-3">Key Features</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
@@ -461,7 +461,7 @@ const Index = () => {
                 <span>Adaptive Learning Systems</span>
               </li>
             </ul>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
@@ -474,9 +474,9 @@ const Index = () => {
       <div ref={sectionRefs.logistics} id="logistics" className="relative">
         <Section 
           id="logistics-section"
-          title="Logistics & Supply Chain Solutions"
+          title="3D Exterior"
           subtitle="Logistics"
-          description="Optimize your supply chain with our cutting-edge logistics technology that provides real-time tracking, predictive analytics, and end-to-end visibility."
+          description="Interactive 3D provides an overview of the property's outdoor amenities."
           isActive={activeSection === 'logistics'}
           position={isMobile ? 'center' : 'left'}
           ctaText="Explore Logistics Solutions"
@@ -505,12 +505,12 @@ const Index = () => {
                 <p className="text-sm text-gray-600">Smart warehouse management</p>
               </div>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -518,9 +518,9 @@ const Index = () => {
       <div ref={sectionRefs.entertainment} id="entertainment" className="relative bg-gray-50">
         <Section 
           id="entertainment-section"
-          title="Digital Entertainment Solutions"
+          title="Floor plan"
           subtitle="Entertainment"
-          description="Create immersive digital experiences with our entertainment technology solutions that engage audiences through virtual reality, augmented reality, and interactive content."
+          description="An overview of the area with the measurements."
           isActive={activeSection === 'entertainment'}
           position={isMobile ? 'center' : 'right'}
           ctaText="Discover Entertainment Tech"
@@ -544,12 +544,12 @@ const Index = () => {
               <h3 className="font-medium">Augmented Reality</h3>
               <p className="text-xs text-gray-600">Enhanced digital overlays</p>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -557,9 +557,9 @@ const Index = () => {
       <div ref={sectionRefs.automotive} id="automotive" className="relative">
         <Section 
           id="automotive-section"
-          title="Automotive Technology Solutions"
+          title="Interior"
           subtitle="Automotive"
-          description="Drive innovation in the automotive industry with our smart mobility solutions, connected vehicle systems, and advanced diagnostic tools."
+          description="The DPG walkthrough provides seamless experience between the rooms."
           isActive={activeSection === 'automotive'}
           position={isMobile ? 'center' : 'left'}
           ctaText="Explore Automotive Tech"
@@ -586,12 +586,12 @@ const Index = () => {
                 <span>Vehicle Diagnostics</span>
               </li>
             </ul>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -599,9 +599,9 @@ const Index = () => {
       <div ref={sectionRefs.sustainability} id="sustainability" className="relative bg-gray-50">
         <Section 
           id="sustainability-section"
-          title="Sustainable Technology Solutions"
+          title="Callback in 10 seconds"
           subtitle="Sustainability"
-          description="Empower your organization's environmental initiatives with our sustainable technology solutions that optimize resource usage, reduce waste, and track environmental impact."
+          description="All enquiries are connected to the CRM system and the call-centres."
           isActive={activeSection === 'sustainability'}
           position={isMobile ? 'center' : 'right'}
           ctaText="Explore Green Tech"
@@ -629,12 +629,12 @@ const Index = () => {
                 <p className="text-sm text-gray-600">Smart resource optimization</p>
               </div>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -642,9 +642,9 @@ const Index = () => {
       <div ref={sectionRefs.cybersecurity} id="cybersecurity" className="relative">
         <Section 
           id="cybersecurity-section"
-          title="Advanced Cybersecurity Solutions"
+          title="Buy Now"
           subtitle="Cybersecurity"
-          description="Protect your digital assets with our comprehensive cybersecurity solutions that safeguard against threats, vulnerabilities, and data breaches."
+          description="Book the unit online via credit card payment."
           isActive={activeSection === 'cybersecurity'}
           position={isMobile ? 'center' : 'left'}
           ctaText="Strengthen Your Security"
@@ -668,12 +668,12 @@ const Index = () => {
               <h3 className="font-medium">Data Encryption</h3>
               <p className="text-xs text-gray-600">Enterprise-grade security</p>
             </div>
-          </div>
+          </div>*/}
           {isMobile && (
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}*/}
+          )}
         </Section>
       </div>
 
@@ -682,9 +682,9 @@ const Index = () => {
         <div ref={lastSectionRef}>
           <Section 
             id="manufacturing-section"
-            title="Smart Manufacturing Solutions"
+            title="Simple link sharing"
             subtitle="Manufacturing"
-            description="Transform your production processes with our Industry 4.0 solutions that integrate IoT, AI, and automation to enhance efficiency, quality, and flexibility."
+            description="No need to download anything - No need to install anything"
             isActive={activeSection === 'manufacturing'}
             position={isMobile ? 'center' : 'right'}
             ctaText="Explore Manufacturing Tech"
@@ -717,12 +717,12 @@ const Index = () => {
                   <span>Smart Factory Automation</span>
                 </li>
               </ul>
-            </div>
+            </div>*/}
             {isMobile && (
               <div className="mt-8 flex justify-center">
                 <PhoneDisplay activeSection={activeSection} className="scale-75" />
               </div>
-            )}*/}
+            )}
           </Section>
         </div>
       </div>
