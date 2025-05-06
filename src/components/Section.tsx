@@ -52,9 +52,9 @@ const Section: React.FC<SectionProps> = ({
           ? "mx-auto px-4 text-center" 
           : position === 'left' ? 'ml-6 md:ml-20' : 'mr-6 md:mr-20'
       )}>
-        <h3 className="text-sm font-semibold text-theme-indigo uppercase tracking-wider mb-2">
+        {/*<h3 className="text-sm font-semibold text-theme-indigo uppercase tracking-wider mb-2">
           {subtitle}
-        </h3>
+        </h3>*/}
         <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
           {title}
         </h2>
@@ -62,7 +62,7 @@ const Section: React.FC<SectionProps> = ({
           {description}
         </p>
         {children}
-        {ctaText && (
+        {/*{ctaText && (
           <Button 
             onClick={onCTAClick} 
             className={cn(
@@ -71,7 +71,7 @@ const Section: React.FC<SectionProps> = ({
           >
             {ctaText}
           </Button>
-        )}
+        )}*/}
       </div>
     </section>
   );

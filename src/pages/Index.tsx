@@ -65,7 +65,7 @@ const Index = () => {
       if (lastSectionRef.current) {
         const lastSectionBottom = lastSectionRef.current.getBoundingClientRect().bottom;
         // If we've scrolled past the bottom of the last section, unfix the phone
-        if (lastSectionBottom < 300) {  // Adjust this value based on when you want to unfix the phone
+        if (lastSectionBottom < 700) {  // Adjust this value based on when you want to unfix the phone
           setPhoneFixed(false);
           return;
         }
@@ -92,9 +92,9 @@ const Index = () => {
           // Update phone position based on section
           if (section === 'home') {
             setPhonePosition('center');
-          } else if (section === 'services' || section === 'retail' || section === 'education' || section === 'entertainment' || section === 'sustainability' || section === 'manufacturing') {
+          } else if (section === 'services' || section === 'retail' || section === 'healthcare' || section === 'logistics' || section === 'automotive' || section === 'cybersecurity') {
             setPhonePosition('right');
-          } else if (section === 'realestate' || section === 'fintech' || section === 'healthcare' || section === 'logistics' || section === 'automotive' || section === 'cybersecurity') {
+          } else if (section === 'realestate' || section === 'fintech' || section === 'education' || section === 'entertainment' || section === 'sustainability' || section === 'manufacturing') {
             setPhonePosition('left');
           }
         }
@@ -140,20 +140,20 @@ const Index = () => {
       >
         <div className="container mx-auto px-4 text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-theme-blue to-theme-purple bg-clip-text text-transparent">
-            Digital Solutions <br />For Modern Businesses
+          Real Estate<br />Sales & Marketing
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Transform your business with our innovative digital solutions that help you stay ahead in today's rapidly evolving market.
+          Reimagined
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button 
+            {/*<Button 
               className="bg-gradient-to-r from-theme-blue to-theme-purple hover:opacity-90 transition-opacity"
             >
               Get Started
             </Button>
             <Button variant="outline">
               Learn More
-            </Button>
+            </Button>*/}
           </div>
         </div>
         
@@ -179,7 +179,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'left'}
           ctaText="View All Services"
         >
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          {/*<div className="grid grid-cols-2 gap-4 mb-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
@@ -223,7 +223,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
       
@@ -238,7 +238,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'right'}
           ctaText="Explore Real Estate Solutions"
         >
-          <div className="mb-6">
+          {/*<div className="mb-6">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
@@ -278,7 +278,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
       
@@ -293,7 +293,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'left'}
           ctaText="Discover Retail Solutions"
         >
-          <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
+          {/*<div className="bg-white p-5 rounded-lg shadow-sm mb-6">
             <h3 className="font-medium mb-3">Key Benefits</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
@@ -326,7 +326,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
       
@@ -341,7 +341,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'right'}
           ctaText="Explore Fintech Solutions"
         >
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          {/*<div className="grid grid-cols-2 gap-4 mb-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
@@ -384,7 +384,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -399,7 +399,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'left'}
           ctaText="Explore Healthcare Solutions"
         >
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          {/*<div className="grid grid-cols-2 gap-4 mb-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
@@ -424,7 +424,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -481,7 +481,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'left'}
           ctaText="Explore Logistics Solutions"
         >
-          <div className="mb-6">
+          {/*<div className="mb-6">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
@@ -510,7 +510,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -525,7 +525,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'right'}
           ctaText="Discover Entertainment Tech"
         >
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          {/*<div className="grid grid-cols-2 gap-4 mb-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-indigo" viewBox="0 0 20 20" fill="currentColor">
@@ -549,7 +549,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -564,7 +564,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'left'}
           ctaText="Explore Automotive Tech"
         >
-          <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
+          {/*<div className="bg-white p-5 rounded-lg shadow-sm mb-6">
             <h3 className="font-medium mb-3">Key Solutions</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
@@ -591,7 +591,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -606,7 +606,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'right'}
           ctaText="Explore Green Tech"
         >
-          <div className="mb-6">
+          {/*<div className="mb-6">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
@@ -634,7 +634,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -649,7 +649,7 @@ const Index = () => {
           position={isMobile ? 'center' : 'left'}
           ctaText="Strengthen Your Security"
         >
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          {/*<div className="grid grid-cols-2 gap-4 mb-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-theme-blue" viewBox="0 0 20 20" fill="currentColor">
@@ -673,7 +673,7 @@ const Index = () => {
             <div className="mt-8 flex justify-center">
               <PhoneDisplay activeSection={activeSection} className="scale-75" />
             </div>
-          )}
+          )}*/}
         </Section>
       </div>
 
@@ -689,7 +689,7 @@ const Index = () => {
             position={isMobile ? 'center' : 'right'}
             ctaText="Explore Manufacturing Tech"
           >
-            <div className="bg-white p-5 rounded-lg shadow-sm mb-6">
+            {/*<div className="bg-white p-5 rounded-lg shadow-sm mb-6">
               <h3 className="font-medium mb-3">Industry 4.0 Technologies</h3>
               <ul className="space-y-2">
                 <li className="flex items-center">
@@ -722,7 +722,7 @@ const Index = () => {
               <div className="mt-8 flex justify-center">
                 <PhoneDisplay activeSection={activeSection} className="scale-75" />
               </div>
-            )}
+            )}*/}
           </Section>
         </div>
       </div>
