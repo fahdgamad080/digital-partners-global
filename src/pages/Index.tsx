@@ -65,7 +65,7 @@ const Index = () => {
       if (lastSectionRef.current) {
         const lastSectionBottom = lastSectionRef.current.getBoundingClientRect().bottom;
         // If we've scrolled past the bottom of the last section, unfix the phone
-        if (lastSectionBottom < 300) {  // Adjust this value based on when you want to unfix the phone
+        if (lastSectionBottom < 750) {  // Adjust this value based on when you want to unfix the phone
           setPhoneFixed(false);
           return;
         }
@@ -92,9 +92,9 @@ const Index = () => {
           // Update phone position based on section
           if (section === 'home') {
             setPhonePosition('center');
-          } else if (section === 'services' || section === 'retail' || section === 'education' || section === 'entertainment' || section === 'sustainability' || section === 'manufacturing') {
+          } else if (section === 'services' || section === 'retail' || section === 'healthcare' || section === 'logistics' || section === 'automotive' || section === 'cybersecurity') {
             setPhonePosition('right');
-          } else if (section === 'realestate' || section === 'fintech' || section === 'healthcare' || section === 'logistics' || section === 'automotive' || section === 'cybersecurity') {
+          } else if (section === 'realestate' || section === 'fintech' || section === 'education' || section === 'entertainment' || section === 'sustainability' || section === 'manufacturing') {
             setPhonePosition('left');
           }
         }
